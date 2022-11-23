@@ -1,4 +1,4 @@
-package com.finalproject.finalproject.config;
+package com.finalproject.finalproject.controllers.config;
 
 
 import com.finalproject.finalproject.jwt.AuthEntryPointJwt;
@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/login").permitAll()
+                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/test/**").permitAll().antMatchers("/api/test/image/**").permitAll()
                 .anyRequest().authenticated();
 
